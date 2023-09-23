@@ -22,7 +22,26 @@ const AuthProvider = ({children}) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            setLoading(false);
+            if(currentUser){
+            const loggedUser = {email: currentUser?.email};
+                fetch('http://localhost:3000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type' : 'application/json'
+                    },
+                    body: JSON.stringify(loggedUser)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data)
+                    localStorage.setItem('talkTime-access-token', data?.token);
+                    setLoading(false);
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            }
+            
         });
 
         return () => unsubscribe();

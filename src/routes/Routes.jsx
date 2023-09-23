@@ -5,6 +5,9 @@ import Main from "../layouts/Main";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
+import Dashboard from "../layouts/Dashboard";
+import AllUsers from "../pages/Dashboard/Admin/AllUsers/AllUsers";
+import AdminHome from "../pages/Dashboard/Admin/AdminHome/AdminHome";
 
   const router = createBrowserRouter([
     {
@@ -24,6 +27,20 @@ import SignUp from "../pages/SignUp/SignUp";
               element: <SignUp></SignUp>
             }
         ]
+    },
+    {
+      path: 'dashboard',
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+          path: 'adminHome',
+          element: <AdminHome></AdminHome>
+        },
+        {
+          path: 'allusers',
+          element: <AllUsers></AllUsers>
+        }
+      ]
     }
   ]);
 

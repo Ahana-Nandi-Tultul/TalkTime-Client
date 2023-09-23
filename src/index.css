@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.menu a.active {
+.activeCs a.active {
     color: #01a2a6;
-  }
+}
+.dasActiveCS a.active {
+    color: rgb(255, 238, 0);
+}
