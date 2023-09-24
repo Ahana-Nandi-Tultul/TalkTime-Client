@@ -9,6 +9,9 @@ import Dashboard from "../layouts/Dashboard";
 import AllUsers from "../pages/Dashboard/Admin/AllUsers/AllUsers";
 import AdminHome from "../pages/Dashboard/Admin/AdminHome/AdminHome";
 import PrivateRoute from "./PrivateRoute";
+import InsHome from "../pages/Dashboard/Instructor/InsHome/InsHome";
+import AddClass from "../pages/Dashboard/Instructor/AddClass/AddClass";
+import ManageClass from "../pages/Dashboard/Instructor/ManageClass/ManageClass";
 
   const router = createBrowserRouter([
     {
@@ -41,8 +44,20 @@ import PrivateRoute from "./PrivateRoute";
         {
           path: 'allusers',
           element: <AllUsers></AllUsers>
-        }
+        },
         // instructor routes
+        {
+          path: "instructorhome",
+          element: <InsHome></InsHome>
+        },
+        {
+          path: 'addclass',
+          element: <AddClass></AddClass>
+        },
+        {
+          path: 'manageclass',
+          element: <ManageClass></ManageClass>
+        }
       ]
     }
   ]);

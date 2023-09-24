@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import DashboardNav from "../pages/Shared/DashboardNav/DashboardNav";
 import { FaPalette, FaUserGroup, } from 'react-icons/fa6';
+import { BiAddToQueue } from 'react-icons/bi';
 import useAdminOrInstructor from "../hooks/useAdminOrInstructor";
 
 const Dashboard = () => {
@@ -22,13 +23,14 @@ const Dashboard = () => {
                 {
                     isAdminOrInsLoading?.isAdmin && 
                     <>
-                        <NavLink to='/dashboard/adminHome' className="flex text-lg text-white items-center gap-2" ><FaPalette/> Dashboard</NavLink>
-                        <NavLink to='/dashboard/allusers' className="flex text-lg text-white items-center gap-2" ><FaUserGroup/> All Users</NavLink>
+                        <NavLink to='/dashboard/adminHome' className="flex text-lg text-white items-center gap-2 mb-2" ><FaPalette/> Dashboard</NavLink>
+                        <NavLink to='/dashboard/allusers' className="flex text-lg text-white items-center gap-2 mb-2" ><FaUserGroup/> All Users</NavLink>
                     </>
                 }
                 {
                      isAdminOrInsLoading?.isInstructor && <>
-                        <NavLink to='/dashboard/adminHome' className="flex text-lg text-white items-center gap-2" ><FaPalette/> Ins</NavLink>
+                        <NavLink to='/dashboard/inshome' className="flex text-lg text-white items-center gap-2 mb-2" ><FaPalette/> Dashboard</NavLink>
+                        <NavLink to='/dashboard/addclass' className="flex text-lg text-white items-center gap-2 mb-2" ><BiAddToQueue/> Add Class</NavLink>
 
                      </>
                 }
