@@ -3,16 +3,19 @@ import logo from '../../../assets/logo.jpg';
 import useAuth from "../../../hooks/useAuth";
 
 const DashboardNav = () => {
-    const {user, logout} = useAuth();
+    const {user, logout, } = useAuth();
+    
     const handleLogout = () => {
         logout()
         .then(() => {
             localStorage.removeItem('talkTime-access-token');
+
         })
         .catch(error => {
             console.log(error)
         })
     }
+    
     return (
         <>
              <div className="navbar bg-base-100 p-4">

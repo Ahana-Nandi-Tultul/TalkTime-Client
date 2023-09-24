@@ -33,6 +33,7 @@ import PrivateRoute from "./PrivateRoute";
       path: 'dashboard',
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
+        // admin routes
         {
           path: 'adminHome',
           element: <AdminHome></AdminHome>
@@ -41,6 +42,7 @@ import PrivateRoute from "./PrivateRoute";
           path: 'allusers',
           element: <AllUsers></AllUsers>
         }
+        // instructor routes
       ]
     }
   ]);
