@@ -31,6 +31,7 @@ const Dashboard = () => {
                      isAdminOrInsLoading?.isInstructor && <>
                         <NavLink to='/dashboard/inshome' className="flex text-lg text-white items-center gap-2 mb-2" ><FaPalette/> Dashboard</NavLink>
                         <NavLink to='/dashboard/addclass' className="flex text-lg text-white items-center gap-2 mb-2" ><BiAddToQueue/> Add Class</NavLink>
+                        <NavLink to='/dashboard/manageclass' className="flex text-lg text-white items-center gap-2 mb-2" ><BiAddToQueue/> Manage Class</NavLink>
 
                      </>
                 }
