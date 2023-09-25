@@ -112,7 +112,7 @@ const AddClass = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-6">
                         <div className="form-control w-full">
-                            <label className="label">
+                            <label className="label"> 
                                 <span className="label-text">Available Seats*</span>
                             </label>
                             <input type="text" placeholder="available seats" 
