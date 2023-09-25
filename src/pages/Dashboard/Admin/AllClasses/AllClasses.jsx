@@ -124,7 +124,7 @@ const AllClasses = () => {
                         </td>
                         <td>
                             <button className={`btn bg-[#01a2a6] text-white
-                             `} htmlFor = 'my_modal_5' onClick={() => handleFeedbackModal(oneClass)}><MdFeedback className="w-6 h-6"/></button>
+                             ${oneClass.status === 'approved'? 'btn-disabled' : ''}`} htmlFor = 'my_modal_5' onClick={() => handleFeedbackModal(oneClass)}><MdFeedback className="w-6 h-6"/></button>
                         </td>
                     </tr>)
                     }

@@ -19,7 +19,7 @@ const FeedbackModal = ({openModal, setOpenModal, oneClass, handleSetFeedback}) =
                         <label className="label">
                             <span className="label-text">Feedback</span>
                         </label>
-                        <textarea className="textarea textarea-bordered w-full" name="feedback" defaultValue={oneClass?.feedback || 'feedback'}></textarea>                    
+                        <textarea className="textarea textarea-bordered w-full" name="feedback" defaultValue={oneClass?.feedback}></textarea>                    
                     </div>
                     <input type= 'submit' value="Submit" className="btn bg-[#01a2a6] text-white" />
               </form>
