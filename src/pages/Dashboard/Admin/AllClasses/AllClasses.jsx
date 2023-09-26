@@ -70,6 +70,7 @@ const AllClasses = () => {
 
     return (
         <div>
+            {/* TODO: Implements Paginations */}
             <h2 className="text-center text-3xl font-semibold my-10">Number of Classes: {classes.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table">
@@ -81,7 +82,7 @@ const AllClasses = () => {
                         <th>Available Seats</th>
                         <th>Instructor</th>
                         <th>Price</th>
-                        <th>Enrolled Students</th>
+                        <th>Students</th>
                         <th>Status</th>
                         <th>Approved</th>
                         <th>Deny</th>
@@ -107,7 +108,7 @@ const AllClasses = () => {
                         <td>{oneClass.seats}</td>
                         <td>{oneClass.instructor}
                         <br/>
-                        <div className="text-sm opacity-50">Email: {oneClass.email}</div>
+                        <div className="text-sm opacity-50">{oneClass.email}</div>
                         </td>
                         <td className="text-left">${oneClass.coursePrice}</td>
                         <td className="text-left">{oneClass.enrolledStudents}</td>

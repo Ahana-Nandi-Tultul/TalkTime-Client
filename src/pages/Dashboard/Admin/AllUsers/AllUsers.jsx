@@ -101,6 +101,7 @@ const AllUsers = () => {
           })
     }
     return (
+        // TODO: Implements Paginations
         <div className="w-full p-4">
             <h2 className="text-center text-3xl my-8 font-bold">All Users: {users.length}</h2>
             <div className="overflow-x-auto">
