@@ -16,6 +16,10 @@ const TopClasses = () => {
                     topClasses.map(oneClass => <ClassCard key={oneClass._id} oneClass = {oneClass}></ClassCard>)
                 }
             </div>
+            <div className="flex justify-center my-8">
+                <button className="btn border-b-[#01a2a6] border-b-4 hover:bg-[#01a2a6] 
+                hover:text-white">All Classes</button>
+            </div>
         </div>
     );
 };

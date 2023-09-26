@@ -11,7 +11,7 @@ const ClassCard = ({oneClass}) => {
                     <div className="divider"></div>
                     <div className="card-actions justify-between">
                     <div className="stat-value">${coursePrice}</div>
-                    <button className="btn btn-primary">Select</button>
+                    <button className="btn bg-[#01a2a6] text-white">Select</button>
                     </div>
                 </div>
             </div>
