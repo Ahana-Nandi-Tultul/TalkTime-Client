@@ -13,6 +13,7 @@ import InsHome from "../pages/Dashboard/Instructor/InsHome/InsHome";
 import AddClass from "../pages/Dashboard/Instructor/AddClass/AddClass";
 import ManageClass from "../pages/Dashboard/Instructor/ManageClass/ManageClass";
 import AllClasses from "../pages/Dashboard/Admin/AllClasses/AllClasses";
+import InstructorClass from "../pages/InstructorClass/InstructorClass";
 
   const router = createBrowserRouter([
     {
@@ -30,6 +31,11 @@ import AllClasses from "../pages/Dashboard/Admin/AllClasses/AllClasses";
             {
               path: '/signup',
               element: <SignUp></SignUp>
+            },
+            
+            {
+              path: '/instructorClasses/:id',
+              element: <PrivateRoute><InstructorClass></InstructorClass></PrivateRoute>
             }
         ]
     },
@@ -62,7 +68,8 @@ import AllClasses from "../pages/Dashboard/Admin/AllClasses/AllClasses";
         {
           path: 'manageclass',
           element: <ManageClass></ManageClass>
-        }
+        },
+        
       ]
     }
   ]);

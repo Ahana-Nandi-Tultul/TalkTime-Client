@@ -1,7 +1,8 @@
 import { MdOutlineNumbers } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const InstructorCard = ({instructorInfo}) => {
-    const {instructor, photo, email, totalClasses, courseNames} = instructorInfo;
+    const {_id, instructor, photo, email, totalClasses, courseNames} = instructorInfo;
     return (
         <div className="card bg-base-100 shadow-xl">
         <figure className="px-10 pt-10 avatar">
@@ -25,7 +26,7 @@ const InstructorCard = ({instructorInfo}) => {
             <div className="divider"></div>
             <div className="card-actions items-center justify-between">
                 <div className='flex items-center'><MdOutlineNumbers className="w-6 h-6"/> {totalClasses} classes</div>
-            <button className="btn bg-[#01a2a6] text-white">See Classes</button>
+            <Link to={`/instructorClasses/${_id}`}><button className="btn bg-[#01a2a6] text-white">See Classes</button></Link>
             </div>
         </div>
         </div>

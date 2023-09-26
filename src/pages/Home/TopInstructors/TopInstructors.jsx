@@ -19,7 +19,10 @@ const TopInstructors = () => {
                     instructorInfo = {instructorInfo}></InstructorCard>)
             }
             </div>
-            
+            <div className="flex justify-center my-8">
+                <button className="btn border-b-[#01a2a6] border-b-4 hover:bg-[#01a2a6] 
+                hover:text-white">All Instructors</button>
+            </div>
         </div>
     );
 };
