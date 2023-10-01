@@ -7,7 +7,7 @@ const useAdminOrInstructor = () => {
     const [instance] = useAxiosSecure();
     const {data: isAdminOrIns = false, isAdminOrInsLoading } = useQuery({
         queryKey: ['users', user?.email],
-        enabled: !loading,
+        enabled: !loading && !!user,
         queryFn: async () => {
             const res = await instance.get(`/users/${user?.email}`)
             // console.log(res?.data);

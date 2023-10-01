@@ -2,10 +2,12 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo.jpg';
 import useAuth from '../../../hooks/useAuth';
 import { useState } from 'react';
+import useAdminOrInstructor from '../../../hooks/useAdminOrInstructor';
 
 const Navber = () => {
     const {user, logout} = useAuth();
     const [isOpen, setIsOpen] = useState(false);
+    const [isAdminOrInsLoading] = useAdminOrInstructor();
     const handleLogout = () => {
         logout()
         .then(() => {
@@ -19,7 +21,14 @@ const Navber = () => {
         <NavLink to="/" className="font-semibold mr-4">Home</NavLink>
         <NavLink to="/instructors" className="font-semibold mr-4">Instructors</NavLink>
         <NavLink to="/classes" className="font-semibold mr-4">Classes</NavLink>
-        <NavLink to="/dashboard/adminhome" className="font-semibold mr-4">Dashboard</NavLink>
+        
+        {
+            user ? 
+           isAdminOrInsLoading?.isAdmin ? <NavLink to="/dashboard/adminhome" className="font-semibold mr-4">Dashboard</NavLink> :
+            isAdminOrInsLoading?.isInstructor ? <NavLink to="/dashboard/instructorhome" className="font-semibold mr-4">Dashboard</NavLink> :
+            <NavLink to="/dashboard/studenthome" className="font-semibold mr-4">Dashboard</NavLink> :
+            ''
+        }
     </>
     return (
         <>

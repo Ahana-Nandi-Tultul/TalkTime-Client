@@ -15,6 +15,9 @@ import ManageClass from "../pages/Dashboard/Instructor/ManageClass/ManageClass";
 import AllClasses from "../pages/Dashboard/Admin/AllClasses/AllClasses";
 import InstructorClass from "../pages/InstructorClass/InstructorClass";
 import Instructors from "../pages/Instructors/Instructors";
+import Classes from "../pages/Classes/Classes";
+import StudentHome from "../pages/Dashboard/Student/StudentHome/StudentHome";
+import SelectedClasses from "../pages/Dashboard/Student/SelectedClasses/SelectedClasses";
 
   const router = createBrowserRouter([
     {
@@ -40,6 +43,10 @@ import Instructors from "../pages/Instructors/Instructors";
             {
               path: '/instructorClasses/:id',
               element: <InstructorClass></InstructorClass>
+            },
+            {
+              path: '/classes',
+              element: <Classes></Classes>
             }
         ]
     },
@@ -73,6 +80,15 @@ import Instructors from "../pages/Instructors/Instructors";
           path: 'manageclass',
           element: <ManageClass></ManageClass>
         },
+        // student routes
+        {
+          path: 'studenthome',
+          element: <StudentHome></StudentHome>
+        },
+        {
+          path: 'selectedclasses',
+          element: <SelectedClasses></SelectedClasses>
+        }
         
       ]
     }

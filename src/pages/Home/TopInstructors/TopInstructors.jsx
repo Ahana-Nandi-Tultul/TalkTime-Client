@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import InstructorCard from "../../../components/InstructorCard";
+import { Link } from "react-router-dom";
 
 const TopInstructors = () => {
     const [topIns, setTopIns] = useState([]);
@@ -20,8 +21,8 @@ const TopInstructors = () => {
             }
             </div>
             <div className="flex justify-center my-8">
-                <button className="btn border-b-[#01a2a6] border-b-4 hover:bg-[#01a2a6] 
-                hover:text-white">All Instructors</button>
+                <Link to='/instructors'><button className="btn border-b-[#01a2a6] border-b-4 hover:bg-[#01a2a6] 
+                hover:text-white">All Instructors</button></Link>
             </div>
         </div>
     );

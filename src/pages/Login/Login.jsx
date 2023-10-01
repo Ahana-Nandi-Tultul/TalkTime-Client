@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image1 from '../../assets/crop_authentication.png';
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -11,6 +11,9 @@ import Swal from 'sweetalert2';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const {login} = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state?.from?.pathname || '/';
     const {
         register,
         handleSubmit,
@@ -28,7 +31,8 @@ const Login = () => {
                 title: 'Successfully! You have logged in your account.',
                 showConfirmButton: false,
                 timer: 1500
-              })
+              });
+            navigate(from, {replace: true})
         })
         .catch(error => {
             console.log(error)

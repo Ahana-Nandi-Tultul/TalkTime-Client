@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import DashboardNav from "../pages/Shared/DashboardNav/DashboardNav";
-import { FaPalette, FaUserGroup, } from 'react-icons/fa6';
+import { FaPalette, FaUserGroup} from 'react-icons/fa6';
+import { FaShoppingCart} from 'react-icons/fa';
 import { BiAddToQueue } from 'react-icons/bi';
 import { SiNginxproxymanager } from 'react-icons/si';
 import useAdminOrInstructor from "../hooks/useAdminOrInstructor";
@@ -36,6 +37,14 @@ const Dashboard = () => {
                         <NavLink to='/dashboard/manageclass' className="flex text-lg text-white items-center gap-2 mb-2" ><FaUserGroup/> Manage Class</NavLink>
 
                      </>
+                }
+                {
+                    <>
+                        <NavLink to='/dashboard/studenthome' className="flex text-lg text-white items-center gap-2 mb-2" ><FaPalette/> Dashboard</NavLink>
+                        <NavLink to='/dashboard/selectedclasses' className="flex text-lg text-white items-center gap-2 mb-2" ><FaShoppingCart/> Selected Classes</NavLink>
+                        <NavLink to='/dashboard/manageclass' className="flex text-lg text-white items-center gap-2 mb-2" ><FaUserGroup/> Manage Class</NavLink>
+
+                    </>
                 }
                
                 </ul>
