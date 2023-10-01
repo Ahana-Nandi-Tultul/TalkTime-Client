@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useParams } from "react-router-dom";
 import ClassCard from "../../components/ClassCard";
+import axios from "axios";
 
 const InstructorClass = () => {
     const [oneInstructor, setOneInstructor] = useState([]);
     const [classesInfo, setClassesInfo] = useState([])
     const insId = useParams();
     const id = insId?.id;
-    const [instance] = useAxiosSecure();
+ 
     useEffect(() => {
-        instance.get(`/instructors/${id}`)
+        axios.get(`http://localhost:3000/instructors/${id}`)
         .then( res => {
             setOneInstructor(res?.data);
         });
-    }, [instance, id])
+    }, [id])
     useEffect(() => {
-        instance.get(`/instructors/classes/${oneInstructor?.email}`)
+        axios.get(`http://localhost:3000/instructors/classes/${oneInstructor?.email}`)
         .then(res => {
             
             setClassesInfo(res?.data)
         })
-    }, [instance, oneInstructor?.email])
+    }, [oneInstructor])
     return (
         <>
         <div className=" bg-base-200">
