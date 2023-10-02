@@ -21,6 +21,7 @@ const ClassCard = ({oneClass}) => {
                 courseName,
                 image,
                 coursePrice,
+                courseId: oneClass._id,
                 instructorEmail: oneClass.email,
                 studentName: user?.displayName,
                 studentEmail: user?.email,
