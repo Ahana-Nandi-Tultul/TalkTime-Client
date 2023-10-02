@@ -42,7 +42,7 @@ const Dashboard = () => {
                     <>
                         <NavLink to='/dashboard/studenthome' className="flex text-lg text-white items-center gap-2 mb-2" ><FaPalette/> Dashboard</NavLink>
                         <NavLink to='/dashboard/selectedclasses' className="flex text-lg text-white items-center gap-2 mb-2" ><FaShoppingCart/> My Selected Classes</NavLink>
-                        <NavLink to='/dashboard/manageclass' className="flex text-lg text-white items-center gap-2 mb-2" ><FaUserGroup/> Manage Class</NavLink>
+                        <NavLink to='/dashboard/enrolledclasses' className="flex text-lg text-white items-center gap-2 mb-2" ><FaUserGroup/> My Enrolled Classes</NavLink>
 
                     </>
                 }

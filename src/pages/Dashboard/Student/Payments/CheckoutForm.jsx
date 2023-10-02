@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe, } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useAuth from "../../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const CheckoutForm = ({allselectedClasses, price}) => {
     const stripe = useStripe();
@@ -72,7 +73,7 @@ const CheckoutForm = ({allselectedClasses, price}) => {
               date: new Date(),
               quantity : allselectedClasses.length,
               cartItems: allselectedClasses.map(item => item._id),
-              classsesId : allselectedClasses.map(item => item.courseId),
+              classesId : allselectedClasses.map(item => item.courseId),
               status: 'service pending',
               courseNames : allselectedClasses.map(item => item.courseName)
             }
@@ -81,7 +82,13 @@ const CheckoutForm = ({allselectedClasses, price}) => {
             .then(res => {
               console.log(res?.data)
               if(res?.data?.insertedId){
-                // display confirm
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Thank you for your payment.',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
               }
             })
           
@@ -112,7 +119,7 @@ const CheckoutForm = ({allselectedClasses, price}) => {
                 Pay
             </button>
             { cardError && <p className="text-red-500"><small>{cardError}</small></p> }
-            { transactionId && <p className="text-[#01a2a6]"><small>{transactionId}</small></p> }
+            { transactionId && <p className="text-[#01a2a6]"><small>Your Transaction Id : {transactionId}</small></p> }
             
             </form>
         </>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ClassCard from "../../../components/ClassCard";
+import { Link } from "react-router-dom";
 
 const TopClasses = () => {
     const [topClasses, setTopClasses] = useState([])
@@ -17,8 +18,8 @@ const TopClasses = () => {
                 }
             </div>
             <div className="flex justify-center my-8">
-                <button className="btn border-b-[#01a2a6] border-b-4 hover:bg-[#01a2a6] 
-                hover:text-white">All Classes</button>
+                <Link to="/classes"><button className="btn border-b-[#01a2a6] border-b-4 hover:bg-[#01a2a6] 
+                hover:text-white">All Classes</button></Link>
             </div>
         </div>
     );

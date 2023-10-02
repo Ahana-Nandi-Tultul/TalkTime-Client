@@ -1,20 +1,22 @@
-import { Link } from "react-router-dom";
-import useCart from "../../../../hooks/useCart";
+import { useEffect, useState } from "react";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useAuth from "../../../../hooks/useAuth";
 
-const SelectedClasses = () => {
-    const [allselectedClasses, refetch] = useCart()
-
-    const totalPrice = allselectedClasses.reduce((sum, item) => item.coursePrice + sum, 0);
-    // console.log(totalPrice);
-
+const EnrolledClasses = () => {
+    const {user} = useAuth();
+    const [enrolledclasses, setEnrolledClasses] = useState([]);
+    const [instance] = useAxiosSecure();
+    useEffect(() => {
+        instance(`/payments/${user?.email}`)
+        .then(res => {
+            setEnrolledClasses(res?.data)
+        })
+    }, [])
     return (
         <div className="w-full p-4">
-            <div className="flex justify-between items-center md:w-11/12">
-                <h2 className=" text-3xl font-semibold my-10">Total Price: ${totalPrice} </h2>
-                <Link to='/dashboard/payments' className="btn btn-sm bg-[#01a2a6] text-white">Pay</Link>
-            </div>
+            <h2 className="text-center text-3xl my-10 font-semibold">My Enrolled Classes: {enrolledclasses.length}</h2>
             <div>
-                <div className="overflow-x-auto">
+            <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
                         <thead>
@@ -22,13 +24,12 @@ const SelectedClasses = () => {
                             <th>#</th>
                             <th>Course</th>
                             <th>Instructor</th>
-                            <th>Delete</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         {
-                            allselectedClasses.map((item, index) => <tr key={item._id}>
+                            enrolledclasses.map((item, index) => <tr key={index}>
                                 <td>{index + 1}</td>
                                 <td>
                                 <div className="flex items-center space-x-3">
@@ -44,12 +45,7 @@ const SelectedClasses = () => {
                                 </div>
                                 </td>
                                 <td>{item.instructor}<br/>
-                                <div className="text-sm opacity-50">{item.instructorEmail}</div>
-                                </td>
-                                <td>
-                                <button className="btn btn-circle btn-outline">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                </button>
+                                <div className="text-sm opacity-50">{item.InstructrorEmail}</div>
                                 </td>
                             </tr>)
                         }
@@ -62,4 +58,4 @@ const SelectedClasses = () => {
     );
 };
 
-export default SelectedClasses;
+export default EnrolledClasses;
