@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const {createUser, updateUserProfile} = useAuth();
+    const {createUser, updateUserProfile, isDarkMode} = useAuth();
     const {
         register,
         handleSubmit,
@@ -95,14 +95,16 @@ const SignUp = () => {
                     <div className="text-center lg:text-left">
                         <img src={image1} alt="" className='w-full' />
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className={`card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100
+                    ${isDarkMode ? 'bg-[#18185a] text-white' : 'bg-base-100 text-black'}`}>
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-0">
                         <h1 className="text-3xl text-center font-bold">Please Sign Up!</h1>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name*</span>
                             </label>
-                            <input type="text" placeholder="name" className="input input-bordered" 
+                            <input type="text" placeholder="name" className={`input input-bordered
+                             ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'}`} 
                             {...register("name", { required: true })} required/>
                             {errors.name && <span className="text-red-500">
                                 <small>Name field is required</small></span>}
@@ -111,7 +113,8 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Email*</span>
                             </label>
-                            <input type="text" placeholder="email" className="input input-bordered" 
+                            <input type="text" placeholder="email" className={`input input-bordered
+                           ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'} `} 
                             {...register("email", { required: true })} required/>
                             {errors.email && <span className="text-red-500">
                                 <small>Email field is required</small></span>}
@@ -121,7 +124,8 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Photo URL*</span>
                             </label>
-                            <input type="text" placeholder="photoURL" className="input input-bordered" 
+                            <input type="text" placeholder="photoURL" className={`input input-bordered
+                            ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'} `} 
                             {...register("photo", { required: true })} required/>
                             {errors.photo && <span className="text-red-500">
                                 <small>Photo URL field is required</small></span>}
@@ -130,7 +134,8 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Phone Number</span>
                             </label>
-                            <input type="number" placeholder="phone number" className="input input-bordered"
+                            <input type="number" placeholder="phone number" className={`input input-bordered
+                            ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'}`}
                             {...register("phone")}/>
                             
                         </div>
@@ -138,7 +143,8 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Address</span>
                             </label>
-                            <input type="text" placeholder="address" className="input input-bordered" 
+                            <input type="text" placeholder="address" className={`input input-bordered
+                            ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'} `} 
                             {...register("address")}/>
                         </div>
                         <div className="form-control">
@@ -172,11 +178,13 @@ const SignUp = () => {
                                 <input
                                 type={showPassword ? 'text' : 'password'}
                                 placeholder="Password"
-                                className="input input-bordered w-full" 
+                                className={`input input-bordered w-full
+                                ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'}`} 
                                 {...register("password", { required: true, minLength: 6, 
                                 pattern: /^(?=.*[A-Z])(?=.*[!@#$&*])/i })} required/>
                                 <span
-                                className="absolute inset-y-0 right-0 px-3 py-2 btn bg-transparent border-0"
+                                className={`absolute inset-y-0 right-0 px-3 py-2 btn bg-transparent border-0
+                                ${isDarkMode ? 'text-white' : ''}`}
                                 onClick={() => setShowPassword(!showPassword)}
                                 >
                                 {showPassword ? <FaEyeSlash /> : <FaEye />}
@@ -191,7 +199,8 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Confirm Password*</span>
                             </label>
-                            <input type="password" placeholder="confirm password" className="input input-bordered" 
+                            <input type="password" placeholder="confirm password" className={`input input-bordered
+                            ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'}`} 
                             {...register("cpassword", { required: true })} required/>
                             {errors.cpassword && <span className="text-red-500">
                                 <small>Confirm Password field is required</small></span>}

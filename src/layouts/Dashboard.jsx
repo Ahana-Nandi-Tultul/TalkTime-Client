@@ -6,14 +6,16 @@ import { BiAddToQueue } from 'react-icons/bi';
 import { SiNginxproxymanager } from 'react-icons/si';
 import useAdminOrInstructor from "../hooks/useAdminOrInstructor";
 import Footer from "../pages/Shared/Footer/Footer";
+import useAuth from "../hooks/useAuth";
 
 const Dashboard = () => {
     const [isAdminOrInsOrStu] = useAdminOrInstructor();
+    const {isDarkMode} = useAuth();
     // console.log(isAdminOrInsLoading);
     return (
         <>
            <DashboardNav></DashboardNav>
-            <div className="drawer lg:drawer-open">
+            <div className={`drawer lg:drawer-open ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-white text-black'}`}>
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center overflow-auto">
                 <Outlet></Outlet>
@@ -22,7 +24,8 @@ const Dashboard = () => {
             </div> 
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-                <ul className="menu dasActiveCS p-4 w-72 min-h-full bg-[#01a2a6] text-base-content">
+                <ul className={`menu dasActiveCS p-4 w-72 min-h-full 
+                ${isDarkMode ? 'bg-[#18185a]' : 'bg-[#01a2a6]'} text-base-content`}>
                 {
                     isAdminOrInsOrStu?.isAdmin && 
                     <>

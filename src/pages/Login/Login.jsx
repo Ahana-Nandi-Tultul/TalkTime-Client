@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const {login} = useAuth();
+    const {login, isDarkMode} = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
     const from = location?.state?.from?.pathname || '/';
@@ -51,14 +51,17 @@ const Login = () => {
                     <div className="text-center lg:text-left">
                         <img src={image1} alt="" />
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className={`card flex-shrink-0 w-full max-w-sm shadow-2xl 
+                    ${isDarkMode ? 'bg-[#18185a] text-white' : 'bg-base-100 text-black'}`}>
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-0">
                         <h1 className="text-3xl text-center font-bold">Please Login!</h1>
                         <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="text" placeholder="email" className="input input-bordered"
+                        <input type="text" placeholder="email" className={`input input-bordered
+                        ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'}
+                        `}
                         {...register("email", { required: true })} required/>
                          {errors.name && <span>Name field is required</span>}
                         </div>
@@ -70,10 +73,12 @@ const Login = () => {
                                 <input
                                 type={showPassword ? 'text' : 'password'}
                                 placeholder="Password"
-                                className="input input-bordered w-full"
+                                className={`input input-bordered w-full
+                                ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'}`}
                                 {...register("password", { required: true })} required/>
                                 <span
-                                className="absolute inset-y-0 right-0 px-3 py-2 btn bg-transparent border-0"
+                                className={`absolute inset-y-0 right-0 px-3 py-2 btn bg-transparent border-0
+                                ${isDarkMode ? 'text-white' : ''}`}
                                 onClick={() => setShowPassword(!showPassword)}
                                 >
                                 {showPassword ? <FaEyeSlash /> : <FaEye />}

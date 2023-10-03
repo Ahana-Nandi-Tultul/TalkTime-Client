@@ -10,7 +10,9 @@ import banner4 from '../../../assets/banner/banner4.jpg';
 import './Banner.css';
 import { BiNotepad, BiUserPlus } from 'react-icons/bi';
 import { FaHeadset } from 'react-icons/fa';
+import useAuth from '../../../hooks/useAuth';
 const Banner = () => {
+    const {isDarkMode} = useAuth();
     return (
         <>
         <div className='relative'>
@@ -46,7 +48,8 @@ const Banner = () => {
                 <p className="text-white text-xl mt-4">To have another language to possess a second identity. </p>
             </div>
         </div>
-        <div className='bg-[#01a2a6] text-white grid grid-cols-1 md:grid-cols-3 p-16'>
+        <div className={`${isDarkMode ? 'bg-[#161655]' : 'bg-[#01a2a6]'}
+         text-white grid grid-cols-1 md:grid-cols-3 p-16`}>
             <div className='flex justify-center items-center'>
                 <div>
                     <BiNotepad className='h-10 w-10'></BiNotepad>

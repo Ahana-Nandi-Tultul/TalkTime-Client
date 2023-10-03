@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import logo1 from '../../../assets/logo1.png';
+import logo2 from '../../../assets/logo2.png';
 import useAuth from "../../../hooks/useAuth";
 import ProfileLogout from '../../../components/ProfileLogout';
+import { FaRegMoon } from 'react-icons/fa';
+import { BsFillSunFill } from 'react-icons/Bs';
 
 const DashboardNav = () => {
-    const {user, logout, } = useAuth();
+    const {user, logout, isDarkMode, setIsDarkMode} = useAuth();
     
     const handleLogout = () => {
         logout()
@@ -19,7 +22,7 @@ const DashboardNav = () => {
     
     return (
         <>
-             <div className="navbar bg-base-100 p-4">
+             <div className={`navbar ${isDarkMode ? 'bg-[#18185a] text-white' : 'bg-base-100 text-black'} p-4`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden" htmlFor="my-drawer-2">
@@ -30,7 +33,10 @@ const DashboardNav = () => {
                     </ul>
                     </div>
                     <Link to='/' className="normal-case text-3xl flex">
-                        <img src={logo1} alt="" className='h-[30px]' />
+                        {
+                            isDarkMode ?  <img src={logo2} alt="" className='h-[30px]' /> :
+                            <img src={logo1} alt="" className='h-[30px]' />
+                        }
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -39,6 +45,10 @@ const DashboardNav = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                {
+                    isDarkMode ?  <button onClick={() => setIsDarkMode(!isDarkMode)}><BsFillSunFill className='font-semibold mr-4'/></button> : 
+                    <button onClick={() => setIsDarkMode(!isDarkMode)}><FaRegMoon className='"font-semibold mr-4'/></button>
+                }
                     {
                         user ? 
                         <>

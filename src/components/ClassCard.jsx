@@ -10,7 +10,7 @@ const ClassCard = ({oneClass}) => {
     const [instance] = useAxiosSecure();
     const location = useLocation();
     const navigate = useNavigate();
-    const {user} = useAuth();
+    const {user, isDarkMode} = useAuth();
     const handleSelectClass = async(oneClass) => {
         if(user) {
             setDisabled(true);
@@ -48,7 +48,8 @@ const ClassCard = ({oneClass}) => {
     
     return (
         <>
-            <div className="card w-full bg-base-100 shadow-xl">
+            <div className={`card w-full  shadow-xl
+             ${isDarkMode ? 'bg-[#18185a] text-white' : 'bg-base-100 text-black'}`}>
                 <figure><img src={image} alt="Shoes" className="h-[500px] w-full"/></figure>
                 <div className="card-body">
                     <h2 className="card-title">{courseName} <small className="text-sm">by {instructor}</small></h2>

@@ -12,7 +12,7 @@ const AllInNumbers = () => {
         .then(data => setInfo(data))
     }, [])
     return (
-        <div className="featured-item text-base-200  my-20 bg-fixed  ">
+        <div className="featured-item text-base-200  my-20 bg-fixed  bg-[#00001a]">
             <div className="bg-black bg-opacity-60 h-full pb-20 pt-20 px-36">
                 <h2 className='text-center text-5xl font-extralight mb-8'>TalkTime in Number</h2>
                 <div className="w-2/3 mx-auto grid grid-cols-1 md:grid-cols-3 gap-2">

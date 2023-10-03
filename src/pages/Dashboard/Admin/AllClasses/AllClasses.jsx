@@ -5,8 +5,11 @@ import { BiTask, BiTaskX } from "react-icons/bi";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import FeedbackModal from "./FeedbackModal";
+import useAuth from "../../../../hooks/useAuth";
+import './AllClasses.css';
 
 const AllClasses = () => {
+    const {isDarkMode} = useAuth();
     const [instance] = useAxiosSecure();
     const [openModal, setOpenModal] = useState(false);
     const [oneClass, setOneClass] = useState({});
@@ -76,13 +79,13 @@ const AllClasses = () => {
                 <table className="table">
                     {/* head */}
                     <thead>
-                    <tr>
+                    <tr className={`${isDarkMode ? 'text-white' : 'text-black'}`}>
                         <th>#</th>
                         <th>Class</th>
-                        <th>Available Seats</th>
+                        <th>Class Details</th>
                         <th>Instructor</th>
-                        <th>Price</th>
-                        <th>Students</th>
+                        
+                       
                         <th>Status</th>
                         <th>Approved</th>
                         <th>Deny</th>
@@ -105,27 +108,31 @@ const AllClasses = () => {
                             </div>
                         </div>
                         </td>
-                        <td>{oneClass.seats}</td>
+                        <td>Seats: {oneClass.seats}
+                        <br/>
+                        Price: ${oneClass.coursePrice}
+                        <br/>
+                        Students: {oneClass.enrolledStudents}</td>
                         <td>{oneClass.instructor}
                         <br/>
                         <div className="text-sm opacity-50">{oneClass.email}</div>
                         </td>
-                        <td className="text-left">${oneClass.coursePrice}</td>
-                        <td className="text-left">{oneClass.enrolledStudents}</td>
                         <td className="uppercase">{oneClass.status}</td>
                         <td>
-                            <button className={`btn bg-yellow-600
+                            <button className={`btn bg-yellow-700
                              text-white ${oneClass.status === 'approved' || oneClass.status === 'denied'
-                             ? 'btn-disabled' : ''} `}  onClick={() => handleStatus(oneClass, 'approved')}><BiTask className="w-6 h-6"/></button>
+                             ? isDarkMode ? 'btn-disabled td-btn' : 'btn-disabled' : ''} 
+                             `}
+                             onClick={() => handleStatus(oneClass, 'approved')}><BiTask className="w-6 h-6"/></button>
                         </td>
                         <td>
                             <button className={`btn bg-red-600
                              text-white ${oneClass.status === 'approved' || oneClass.status === 'denied'
-                             ? 'btn-disabled' : ''} `} onClick={() => handleStatus(oneClass, 'denied')}><BiTaskX className="w-6 h-6"/></button>
+                             ? isDarkMode ? 'btn-disabled td-btn' : 'btn-disabled' : ''} `} onClick={() => handleStatus(oneClass, 'denied')}><BiTaskX className="w-6 h-6"/></button>
                         </td>
                         <td>
                             <button className={`btn bg-[#01a2a6] text-white
-                             ${oneClass.status === 'approved'? 'btn-disabled' : ''}`} htmlFor = 'my_modal_5' onClick={() => handleFeedbackModal(oneClass)}><MdFeedback className="w-6 h-6"/></button>
+                             ${oneClass.status === 'approved'? isDarkMode ? 'btn-disabled td-btn' : 'btn-disabled' : ''}`} htmlFor = 'my_modal_5' onClick={() => handleFeedbackModal(oneClass)}><MdFeedback className="w-6 h-6"/></button>
                         </td>
                     </tr>)
                     }

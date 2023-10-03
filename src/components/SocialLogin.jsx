@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
-    const {googleLogin} = useAuth();
+    const {googleLogin, isDarkMode} = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
     const from = location?.state?.from?.pathname || '/';
@@ -58,9 +58,9 @@ const SocialLogin = () => {
 
     return (
         <div className="p-4">
-            <div className="divider"></div>
+            <div className={`divider ${isDarkMode ? 'divide-white' : 'divide-black'}`}></div>
             <div className="flex justify-center items-center my-4">
-                <button className="btn btn-circle btn-outline" onClick={handleGoogleLogin}>
+                <button className={`btn btn-circle btn-outline ${isDarkMode ? 'bg-white' : ''}`} onClick={handleGoogleLogin}>
                     <FaGoogle></FaGoogle>
                 </button>
             </div>
