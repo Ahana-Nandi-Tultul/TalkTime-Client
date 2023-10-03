@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import logo from '../../../assets/logo.jpg';
+import logo1 from '../../../assets/logo1.png';
 import useAuth from "../../../hooks/useAuth";
+import ProfileLogout from '../../../components/ProfileLogout';
 
 const DashboardNav = () => {
     const {user, logout, } = useAuth();
@@ -29,8 +30,7 @@ const DashboardNav = () => {
                     </ul>
                     </div>
                     <Link to='/' className="normal-case text-3xl flex">
-                        <img src={logo} alt="" className='h-[50px]' />
-                        <span>TalkTime</span>
+                        <img src={logo1} alt="" className='h-[30px]' />
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -40,7 +40,12 @@ const DashboardNav = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ? <button className='btn' onClick={handleLogout}>Logout</button> :
+                        user ? 
+                        <>
+                        <ProfileLogout></ProfileLogout>
+                        <button className='btn' onClick={handleLogout}>Logout</button>
+                        </>
+                         :
                         <Link to="/login" className="btn">Login</Link>
                     }
                     

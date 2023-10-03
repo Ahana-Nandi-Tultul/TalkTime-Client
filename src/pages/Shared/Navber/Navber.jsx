@@ -3,6 +3,7 @@ import logo1 from '../../../assets/logo1.png';
 import useAuth from '../../../hooks/useAuth';
 import { useState } from 'react';
 import useAdminOrInstructor from '../../../hooks/useAdminOrInstructor';
+import ProfileLogout from '../../../components/ProfileLogout';
 
 const Navber = () => {
     const {user, logout} = useAuth();
@@ -43,8 +44,7 @@ const Navber = () => {
                     </ul>
                     </div>
                     <a className="btn btn-ghost normal-case text-3xl ">
-                        <img src={logo1} alt="" className='h-[50px]' />
-                        
+                        <img src={logo1} alt="" className='h-[30px]' />
                     </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -54,7 +54,11 @@ const Navber = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ? <button className='btn' onClick={handleLogout}>Logout</button> :
+                        user ? <>
+                        <ProfileLogout/>
+                        <button className='btn' onClick={handleLogout}>Logout</button>
+                        </>
+                         :
                         <Link to="/login" className="btn">Login</Link>
                     }
                     
