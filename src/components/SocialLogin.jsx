@@ -23,7 +23,7 @@ const SocialLogin = () => {
                 gender: ''
             }
             console.log(loggedUser, newUser);
-            fetch('http://localhost:3000/users', {
+            fetch('https://talk-time-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

@@ -10,13 +10,13 @@ const InstructorClass = () => {
     const id = insId?.id;
  
     useEffect(() => {
-        axios.get(`http://localhost:3000/instructors/${id}`)
+        axios.get(`https://talk-time-server.vercel.app/instructors/${id}`)
         .then( res => {
             setOneInstructor(res?.data);
         });
     }, [id])
     useEffect(() => {
-        axios.get(`http://localhost:3000/instructors/classes/${oneInstructor?.email}`)
+        axios.get(`https://talk-time-server.vercel.app/instructors/classes/${oneInstructor?.email}`)
         .then(res => {
             
             setClassesInfo(res?.data)

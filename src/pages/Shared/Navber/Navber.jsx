@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../../../assets/logo.jpg';
+import logo1 from '../../../assets/logo1.png';
 import useAuth from '../../../hooks/useAuth';
 import { useState } from 'react';
 import useAdminOrInstructor from '../../../hooks/useAdminOrInstructor';
@@ -38,13 +38,13 @@ const Navber = () => {
                     <label tabIndex={0} className="btn btn-ghost lg:hidden" onClick={() => setIsOpen(!isOpen)}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className={`menu activeCs menu-sm dropdown-content mt-3 z-10 flex flex-col ${isOpen ? 'flex' : 'hidden'} p-2 shadow bg-base-100 rounded-box w-52`}>
+                    <ul tabIndex={0} className={`menu activeCs bg-white menu-sm dropdown-content mt-3 z-50 flex flex-col ${isOpen ? 'flex' : 'hidden'} p-2 shadow bg-base-100 rounded-box w-52`}>
                         {navLinks}
                     </ul>
                     </div>
                     <a className="btn btn-ghost normal-case text-3xl ">
-                        <img src={logo} alt="" className='h-[50px]' />
-                        TalkTime
+                        <img src={logo1} alt="" className='h-[50px]' />
+                        
                     </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">

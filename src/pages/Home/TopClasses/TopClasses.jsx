@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const TopClasses = () => {
     const [topClasses, setTopClasses] = useState([])
     useEffect(() => {
-        fetch('http://localhost:3000/topclasses')
+        fetch('https://talk-time-server.vercel.app/topclasses')
         .then(res => res.json())
         .then(data => setTopClasses(data))
     }, [])

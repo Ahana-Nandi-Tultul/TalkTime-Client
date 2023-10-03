@@ -5,7 +5,7 @@ import ClassCard from "../../components/ClassCard";
 const Classes = () => {
     const [allClassesStu, setAllClassesStu] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:3000/allclassesStu')
+        fetch('https://talk-time-server.vercel.app/allclassesStu')
         .then(res => res.json())
         .then(data => setAllClassesStu(data))
         .catch(error => console.log(error))

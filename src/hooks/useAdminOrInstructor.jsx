@@ -5,7 +5,7 @@ import useAxiosSecure from "./useAxiosSecure";
 const useAdminOrInstructor = () => {
     const {user, loading} = useAuth();
     const [instance] = useAxiosSecure();
-    const {data: isAdminOrIns = false, isAdminOrInsLoading } = useQuery({
+    const {data: isAdminOrInsOrStu = false, isLoading:isAdminOrInsOrStuLoading } = useQuery({
         queryKey: ['users', user?.email],
         enabled: !loading && !!user,
         queryFn: async () => {
@@ -14,7 +14,7 @@ const useAdminOrInstructor = () => {
             return res?.data
         }
     }) 
-    return [isAdminOrIns, isAdminOrInsLoading];
+    return [isAdminOrInsOrStu, isAdminOrInsOrStuLoading];
 };
 
 export default useAdminOrInstructor;

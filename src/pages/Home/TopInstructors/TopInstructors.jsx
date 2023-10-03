@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const TopInstructors = () => {
     const [topIns, setTopIns] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:3000/topinstructors')
+        axios.get('https://talk-time-server.vercel.app/topinstructors')
         .then(res => setTopIns(res?.data))
     }, [])
 

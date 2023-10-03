@@ -5,7 +5,7 @@ import InstructorCard from "../../components/InstructorCard";
 const Instructors = () => {
     const [allInstructors, setAllInstructors] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:3000/allinstructors`)
+        fetch(`https://talk-time-server.vercel.app/allinstructors`)
         .then(res => res.json())
         .then(data => setAllInstructors(data))
         .catch(error => console.log(error));

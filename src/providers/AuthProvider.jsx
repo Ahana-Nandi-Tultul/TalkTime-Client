@@ -7,7 +7,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider();
 
     const createUser = (email, password) => {
@@ -29,7 +29,7 @@ const AuthProvider = ({children}) => {
             setUser(currentUser);
             if(currentUser){
             const loggedUser = {email: currentUser?.email};
-                fetch('http://localhost:3000/jwt', {
+                fetch('https://talk-time-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type' : 'application/json'
@@ -46,7 +46,7 @@ const AuthProvider = ({children}) => {
                     console.log(error)
                 })
             }
-            
+            setLoading(false);
         });
 
         return () => unsubscribe();

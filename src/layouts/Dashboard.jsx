@@ -1,13 +1,14 @@
 import { NavLink, Outlet } from "react-router-dom";
 import DashboardNav from "../pages/Shared/DashboardNav/DashboardNav";
-import { FaPalette, FaUserGroup} from 'react-icons/fa6';
-import { FaShoppingCart} from 'react-icons/fa';
+import { FaPalette, FaReadme, FaUserGroup} from 'react-icons/fa6';
+import { FaBookReader, FaHome, FaShoppingCart} from 'react-icons/fa';
 import { BiAddToQueue } from 'react-icons/bi';
 import { SiNginxproxymanager } from 'react-icons/si';
 import useAdminOrInstructor from "../hooks/useAdminOrInstructor";
+import Footer from "../pages/Shared/Footer/Footer";
 
 const Dashboard = () => {
-    const [isAdminOrInsLoading] = useAdminOrInstructor();
+    const [isAdminOrInsOrStu] = useAdminOrInstructor();
     // console.log(isAdminOrInsLoading);
     return (
         <>
@@ -23,7 +24,7 @@ const Dashboard = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
                 <ul className="menu dasActiveCS p-4 w-72 min-h-full bg-[#01a2a6] text-base-content">
                 {
-                    isAdminOrInsLoading?.isAdmin && 
+                    isAdminOrInsOrStu?.isAdmin && 
                     <>
                         <NavLink to='/dashboard/adminHome' className="flex text-lg text-white items-center gap-2 mb-2" ><FaPalette/> Dashboard</NavLink>
                         <NavLink to='/dashboard/allusers' className="flex text-lg text-white items-center gap-2 mb-2" ><FaUserGroup/> Manage Users</NavLink>
@@ -31,7 +32,7 @@ const Dashboard = () => {
                     </>
                 }
                 {
-                     isAdminOrInsLoading?.isInstructor && <>
+                     isAdminOrInsOrStu?.isInstructor && <>
                         <NavLink to='/dashboard/inshome' className="flex text-lg text-white items-center gap-2 mb-2" ><FaPalette/> Dashboard</NavLink>
                         <NavLink to='/dashboard/addclass' className="flex text-lg text-white items-center gap-2 mb-2" ><BiAddToQueue/> Add Class</NavLink>
                         <NavLink to='/dashboard/manageclass' className="flex text-lg text-white items-center gap-2 mb-2" ><FaUserGroup/> Manage Class</NavLink>
@@ -39,18 +40,25 @@ const Dashboard = () => {
                      </>
                 }
                 {
+                    isAdminOrInsOrStu?.isStudent &&
                     <>
                         <NavLink to='/dashboard/studenthome' className="flex text-lg text-white items-center gap-2 mb-2" ><FaPalette/> Dashboard</NavLink>
                         <NavLink to='/dashboard/selectedclasses' className="flex text-lg text-white items-center gap-2 mb-2" ><FaShoppingCart/> My Selected Classes</NavLink>
-                        <NavLink to='/dashboard/enrolledclasses' className="flex text-lg text-white items-center gap-2 mb-2" ><FaUserGroup/> My Enrolled Classes</NavLink>
+                        <NavLink to='/dashboard/enrolledclasses' className="flex text-lg text-white items-center gap-2 mb-2" ><FaBookReader/> My Enrolled Classes</NavLink>
 
                     </>
                 }
+                <div className="divider"></div>
+                <NavLink to='/' className="flex text-lg text-white items-center gap-2 mb-2" ><FaHome/> Home</NavLink>
+                <NavLink to='/classes' className="flex text-lg text-white items-center gap-2 mb-2" ><FaReadme/> Classes</NavLink>
+                <NavLink to='/instructors' className="flex text-lg text-white items-center gap-2 mb-2" ><FaUserGroup/> Instructors</NavLink>
+
                
                 </ul>
             
             </div>
             </div>
+            <Footer></Footer>
         </>
     );
 };
