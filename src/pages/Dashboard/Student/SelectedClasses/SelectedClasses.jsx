@@ -3,11 +3,13 @@ import useCart from "../../../../hooks/useCart";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
+import useAuth from "../../../../hooks/useAuth";
 
 const SelectedClasses = () => {
     const [allselectedClasses, refetch] = useCart();
     const [instance] = useAxiosSecure();
     const [disabled, setDisabled] = useState(true);
+    const {isDarkMode} = useAuth();
 
     const totalPrice = allselectedClasses.reduce((sum, item) => item.coursePrice + sum, 0);
     // console.log(totalPrice);
@@ -59,7 +61,7 @@ const SelectedClasses = () => {
                     <table className="table">
                         {/* head */}
                         <thead>
-                        <tr>
+                        <tr className={`${isDarkMode ? "text-white" : "text-black"}`}>
                             <th>#</th>
                             <th>Course</th>
                             <th>Instructor</th>
@@ -88,7 +90,7 @@ const SelectedClasses = () => {
                                 <div className="text-sm opacity-50">{item.instructorEmail}</div>
                                 </td>
                                 <td>
-                                <button className="btn btn-circle btn-outline" onClick={() => handleDeleteItem(item)}>
+                                <button className={`btn btn-circle btn-outline ${isDarkMode ? 'bg-white' : ''}`} onClick={() => handleDeleteItem(item)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                 </button>
                                 </td>

@@ -17,7 +17,7 @@ const Dashboard = () => {
            <DashboardNav></DashboardNav>
             <div className={`drawer lg:drawer-open ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-white text-black'}`}>
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col items-center justify-center overflow-auto">
+            <div className="drawer-content flex flex-col items-center justify-center overflow-auto my-20">
                 <Outlet></Outlet>
                 {/* <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
             
@@ -36,7 +36,7 @@ const Dashboard = () => {
                 }
                 {
                      isAdminOrInsOrStu?.isInstructor && <>
-                        <NavLink to='/dashboard/inshome' className="flex text-lg text-white items-center gap-2 mb-2" ><FaPalette/> Dashboard</NavLink>
+                        <NavLink to='/dashboard/instructorhome' className="flex text-lg text-white items-center gap-2 mb-2" ><FaPalette/> Dashboard</NavLink>
                         <NavLink to='/dashboard/addclass' className="flex text-lg text-white items-center gap-2 mb-2" ><BiAddToQueue/> Add Class</NavLink>
                         <NavLink to='/dashboard/manageclass' className="flex text-lg text-white items-center gap-2 mb-2" ><FaUserGroup/> Manage Class</NavLink>
 

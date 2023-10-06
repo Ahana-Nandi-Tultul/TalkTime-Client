@@ -6,6 +6,7 @@ import { useState } from "react";
 import ViewFeedbackModal from "./ViewFeedbackModal";
 import UpdateClassModal from "./UpdateClassModal";
 import Swal from "sweetalert2";
+import useAuth from "../../../../hooks/useAuth";
 
 const ManageClass = () => {
     const [instance] = useAxiosSecure();
@@ -13,10 +14,11 @@ const ManageClass = () => {
     const [oneClassFeedback, setOneClassFeedback] = useState({});
     const [openUpdateClassModal, setOpenUpdateClassModal] = useState(false);
     const [oneClassUpdate, setOneClassUpdate] = useState({});
+    const {user, isDarkMode} = useAuth();
     const {data: classes = [], refetch} = useQuery({
-        queryKey: ['allclasses'],
+        queryKey: ['insClass', user?.email],
         queryFn: async() => {
-            const res = await instance('/allclasses')
+            const res = await instance(`/insClass/${user?.email}`)
             // console.log(res?.data);
             return res?.data
         }
@@ -69,7 +71,7 @@ const ManageClass = () => {
                 <table className="table">
                     {/* head */}
                     <thead>
-                    <tr>
+                    <tr className={`${isDarkMode ? "text-white" : "text-black"}`}>
                         <th>#</th>
                         <th>Class</th>
                         <th>Available Seats</th>
@@ -102,12 +104,13 @@ const ManageClass = () => {
                         <td className="uppercase">{oneClass.status}</td>
                         <td>
                             <button onClick ={() => handleViewFeedbackModal(oneClass)} className={`btn bg-yellow-600
-                             text-white ${oneClass.status === 'denied' ? '' : 'btn-disabled'} `} ><MdFeedback className="w-6 h-6"/></button>
+                             text-white ${oneClass.status === 'denied' ? 
+                             isDarkMode ? 'btn-disabled td-btn' : 'btn-disabled' : ''} `} ><MdFeedback className="w-6 h-6"/></button>
                         </td>
                         <td>
                             <button onClick={() => handleOpenUpdateClass(oneClass)}
                             className={`btn bg-[#01a2a6] text-white
-                            ${oneClass.status === 'approved' ? 'btn-disabled' : '' } `}><FaRegEdit className="w-6 h-6"/></button>
+                            ${oneClass.status === 'approved' ? isDarkMode ? 'btn-disabled td-btn' : 'btn-disabled' : ''}`}><FaRegEdit className="w-6 h-6"/></button>
                         </td>
                     </tr>)
                     }
@@ -119,6 +122,7 @@ const ManageClass = () => {
             openViewFeedbackModal = {openViewFeedbackModal}
             setOpenViewFeedbackModal = {setOpenViewFeedbackModal}
             oneClassFeedback = {oneClassFeedback}
+            isDarkMode = {isDarkMode}
             ></ViewFeedbackModal>
             
             <UpdateClassModal
@@ -126,6 +130,7 @@ const ManageClass = () => {
             handleClassUpdate = {handleClassUpdate}
             openUpdateClassModal = {openUpdateClassModal}
             setOpenUpdateClassModal = {setOpenUpdateClassModal}
+            isDarkMode = {isDarkMode}
             >
             </UpdateClassModal>
         </div>

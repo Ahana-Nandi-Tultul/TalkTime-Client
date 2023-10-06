@@ -57,7 +57,8 @@ const Login = () => {
                         <h1 className="text-3xl text-center font-bold">Please Login!</h1>
                         <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className={`label-text ${isDarkMode ? 'text-white' :
+                            'text-black'}`}>Email</span>
                         </label>
                         <input type="text" placeholder="email" className={`input input-bordered
                         ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'}
@@ -67,7 +68,8 @@ const Login = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className={`label-text ${isDarkMode ? 'text-white' :
+                            'text-black'}`}>Password</span>
                             </label>
                             <div className="relative">
                                 <input

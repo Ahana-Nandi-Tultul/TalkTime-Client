@@ -3,7 +3,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useAuth from "../../../../hooks/useAuth";
 
 const EnrolledClasses = () => {
-    const {user} = useAuth();
+    const {user, isDarkMode} = useAuth();
     const [enrolledclasses, setEnrolledClasses] = useState([]);
     const [instance] = useAxiosSecure();
     useEffect(() => {
@@ -20,7 +20,7 @@ const EnrolledClasses = () => {
                     <table className="table">
                         {/* head */}
                         <thead>
-                        <tr>
+                        <tr className={`${isDarkMode ? "text-white" : "text-black"}`}>
                             <th>#</th>
                             <th>Course</th>
                             <th>Instructor</th>

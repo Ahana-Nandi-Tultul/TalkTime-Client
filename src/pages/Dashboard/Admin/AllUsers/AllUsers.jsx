@@ -3,9 +3,11 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { BiUserPin } from 'react-icons/bi';
 import { FaUserShield } from 'react-icons/fa';
 import Swal from "sweetalert2";
+import useAuth from "../../../../hooks/useAuth";
 
 const AllUsers = () => {
-    const [instance] = useAxiosSecure()
+    const [instance] = useAxiosSecure();
+    const {isDarkMode} = useAuth();
     const {data: users = [], refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async() => {
@@ -108,7 +110,7 @@ const AllUsers = () => {
                 <table className="table">
                     {/* head */}
                     <thead>
-                    <tr>
+                    <tr className={`${isDarkMode ? "text-white" : "text-black"}`}>
                         <th>
                         </th>
                         <th>#</th>
@@ -123,7 +125,7 @@ const AllUsers = () => {
                     {
                         users.map((user, index)=> <tr key={user._id}>
                             <td>
-                                <button className="btn btn-circle btn-outline" onClick={() => handleDeleteUser(user)}>
+                                <button className={`btn btn-circle btn-outline ${isDarkMode ? 'bg-white' : ''}`} onClick={() => handleDeleteUser(user)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                 </button>
                             </td>

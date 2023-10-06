@@ -8,7 +8,7 @@ const auth = getAuth(app);
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(true);
     const googleProvider = new GoogleAuthProvider();
 
     const createUser = (email, password) => {
@@ -27,7 +27,6 @@ const AuthProvider = ({children}) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser);
             if(currentUser){
             const loggedUser = {email: currentUser?.email};
                 fetch('https://talk-time-server.vercel.app/jwt', {
@@ -42,12 +41,14 @@ const AuthProvider = ({children}) => {
                     // console.log(data)
                     localStorage.setItem('talkTime-access-token', data?.token);
                     setLoading(false);
+                    setUser(currentUser);
                 })
                 .catch(error => {
                     console.log(error)
                 })
             }
             setLoading(false);
+            setUser(currentUser);
         });
 
         return () => unsubscribe();

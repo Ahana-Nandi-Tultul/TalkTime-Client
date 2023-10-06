@@ -101,7 +101,8 @@ const SignUp = () => {
                         <h1 className="text-3xl text-center font-bold">Please Sign Up!</h1>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Name*</span>
+                                <span className={`label-text ${isDarkMode ? 'text-white' :
+                            'text-black'}`}>Name*</span>
                             </label>
                             <input type="text" placeholder="name" className={`input input-bordered
                              ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'}`} 
@@ -111,7 +112,8 @@ const SignUp = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Email*</span>
+                                <span className={`label-text ${isDarkMode ? 'text-white' :
+                            'text-black'}`}>Email*</span>
                             </label>
                             <input type="text" placeholder="email" className={`input input-bordered
                            ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'} `} 
@@ -122,7 +124,8 @@ const SignUp = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Photo URL*</span>
+                                <span className={`label-text ${isDarkMode ? 'text-white' :
+                            'text-black'}`}>Photo URL*</span>
                             </label>
                             <input type="text" placeholder="photoURL" className={`input input-bordered
                             ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'} `} 
@@ -132,7 +135,8 @@ const SignUp = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Phone Number</span>
+                                <span className={`label-text ${isDarkMode ? 'text-white' :
+                            'text-black'}`}>Phone Number</span>
                             </label>
                             <input type="number" placeholder="phone number" className={`input input-bordered
                             ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'}`}
@@ -141,7 +145,8 @@ const SignUp = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Address</span>
+                                <span className={`label-text ${isDarkMode ? 'text-white' :
+                            'text-black'}`}>Address</span>
                             </label>
                             <input type="text" placeholder="address" className={`input input-bordered
                             ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'} `} 
@@ -149,7 +154,8 @@ const SignUp = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Gender</span>
+                                <span className={`label-text ${isDarkMode ? 'text-white' :
+                            'text-black'}`}>Gender</span>
                             </label>
                             <div className='grid grid-cols-3 gap-2'>
                                 <div className='flex items-center'>
@@ -172,7 +178,8 @@ const SignUp = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Password*</span>
+                                <span className={`label-text ${isDarkMode ? 'text-white' :
+                            'text-black'}`}>Password*</span>
                             </label>
                             <div className="relative">
                                 <input
@@ -197,7 +204,8 @@ const SignUp = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Confirm Password*</span>
+                                <span className={`label-text ${isDarkMode ? 'text-white' :
+                            'text-black'}`}>Confirm Password*</span>
                             </label>
                             <input type="password" placeholder="confirm password" className={`input input-bordered
                             ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-base-100 text-black'}`} 

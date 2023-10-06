@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ClassCard from "../../components/ClassCard";
 import axios from "axios";
+import useAuth from "../../hooks/useAuth";
 
 const InstructorClass = () => {
     const [oneInstructor, setOneInstructor] = useState([]);
-    const [classesInfo, setClassesInfo] = useState([])
+    const [classesInfo, setClassesInfo] = useState([]);
+    const {isDarkMode} = useAuth();
     const insId = useParams();
     const id = insId?.id;
  
@@ -24,7 +26,7 @@ const InstructorClass = () => {
     }, [oneInstructor])
     return (
         <>
-        <div className=" bg-base-200">
+        <div className={`${isDarkMode ? 'bg-[#10103c] text-white' : 'bg-base-200 text-black'}`}>
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 w-full md:w-3/4  p-4 mx-auto" >
                 <div className="w-full">
                     <h2 className="text-7xl font-extralight mb-2">{oneInstructor.name}</h2>
@@ -47,6 +49,7 @@ const InstructorClass = () => {
         </div>
         <div className=" w-full md:w-11/12  p-4 mx-auto my-20">
             <h2 className="text-5xl text-center font-extralight my-8">Classes of {oneInstructor.name}</h2>
+            {classesInfo.length === 0 && <p className="text-3xl text-center my-8">No Class Available Now!!</p>}
             <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-4">
                 {
                     classesInfo.map(oneClass => <ClassCard key={oneClass._id} oneClass={oneClass}></ClassCard>)
