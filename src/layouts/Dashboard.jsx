@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import DashboardNav from "../pages/Shared/DashboardNav/DashboardNav";
 import { FaPalette, FaReadme, FaUserGroup} from 'react-icons/fa6';
-import { FaBookReader, FaHome, FaShoppingCart} from 'react-icons/fa';
+import { FaBookReader, FaCreditCard, FaHome, FaShoppingCart} from 'react-icons/fa';
 import { BiAddToQueue } from 'react-icons/bi';
 import { SiNginxproxymanager } from 'react-icons/si';
 import useAdminOrInstructor from "../hooks/useAdminOrInstructor";
@@ -48,6 +48,7 @@ const Dashboard = () => {
                         <NavLink to='/dashboard/studenthome' className="flex text-lg text-white items-center gap-2 mb-2" ><FaPalette/> Dashboard</NavLink>
                         <NavLink to='/dashboard/selectedclasses' className="flex text-lg text-white items-center gap-2 mb-2" ><FaShoppingCart/> My Selected Classes</NavLink>
                         <NavLink to='/dashboard/enrolledclasses' className="flex text-lg text-white items-center gap-2 mb-2" ><FaBookReader/> My Enrolled Classes</NavLink>
+                        <NavLink to='/dashboard/paymentHistory' className="flex text-lg text-white items-center gap-2 mb-2" ><FaCreditCard/> My payment History</NavLink>
 
                     </>
                 }
