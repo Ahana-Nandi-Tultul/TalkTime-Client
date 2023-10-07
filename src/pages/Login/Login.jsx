@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const {login, isDarkMode} = useAuth();
+    const {login, isDarkMode, loading} = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
     const from = location?.state?.from?.pathname || '/';
@@ -32,7 +32,10 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
-            navigate(from, {replace: true})
+            if(!loading){
+
+                navigate(from, {replace: true})
+            }  
         })
         .catch(error => {
             console.log(error)

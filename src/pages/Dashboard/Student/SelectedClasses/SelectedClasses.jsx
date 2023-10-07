@@ -54,7 +54,8 @@ const SelectedClasses = () => {
         <div className="w-full p-4">
             <div className="flex justify-between items-center md:w-11/12">
                 <h2 className=" text-3xl font-semibold my-10">Total Price: ${totalPrice} </h2>
-                <Link to='/dashboard/payments' className="btn btn-sm bg-[#01a2a6] text-white" disabled = {disabled}>Pay</Link>
+                <Link to='/dashboard/payments' className={`btn btn-sm border-black ${disabled ? 'td-btn text-black' :
+            "bg-[#01a2a6]"}`} disabled = {disabled}>Pay</Link>
             </div>
             <div>
                 <div className="overflow-x-auto">

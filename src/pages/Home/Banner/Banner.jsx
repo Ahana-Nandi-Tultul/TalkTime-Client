@@ -50,27 +50,22 @@ const Banner = () => {
         </div>
         <div className={`${isDarkMode ? 'bg-[#161655]' : 'bg-[#01a2a6]'}
          text-white grid grid-cols-1 md:grid-cols-3 p-16`}>
-            <div className='flex justify-center items-center'>
-                <div>
-                    <BiNotepad className='h-10 w-10'></BiNotepad>
-                    <h2 className='text-3xl text-yellow-200 mt-4'>Get Course</h2>
-                    <p className='text-xl'>Find your ideal course</p>
-                </div>
+            <div className='w-2/3 mx-auto'>
+                <BiNotepad className='h-10 w-10'></BiNotepad>
+                <h2 className='text-3xl text-yellow-200 mt-4'>Get Course</h2>
+                <p className='text-xl'>Find your ideal course</p>
             </div>
-            <div className='flex justify-center items-center'>
-                <div>
-                    <FaHeadset className='h-10 w-10'></FaHeadset>
-                    <h2 className='text-3xl text-yellow-200 mt-4'>Ask Question</h2>
-                    <p className='text-xl'>Get best support from us.</p>
-                </div>
+            <div className='w-2/3 mx-auto my-8 md:my-auto'>
+                <FaHeadset className='h-10 w-10'></FaHeadset>
+                <h2 className='text-3xl text-yellow-200 mt-4'>Ask Question</h2>
+                <p className='text-xl'>Get best support from us.</p>
             </div>
-            <div className='flex justify-center items-center'>
-                <div>
-                    <BiUserPlus className='h-10 w-10'></BiUserPlus>
-                    <h2 className='text-3xl text-yellow-200 mt-4'>Join Today</h2>
-                    <p className='text-xl'>Sign up now!</p>
-                </div>
+            <div className='w-2/3 mx-auto'>
+                <BiUserPlus className='h-10 w-10'></BiUserPlus>
+                <h2 className='text-3xl text-yellow-200 mt-4'>Join Today</h2>
+                <p className='text-xl'>Sign up now!</p>
             </div>
+            
         </div>
         </>
     );
