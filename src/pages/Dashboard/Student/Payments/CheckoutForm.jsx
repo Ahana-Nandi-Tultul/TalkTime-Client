@@ -81,7 +81,7 @@ const CheckoutForm = ({allselectedClasses, price}) => {
             instance.post('/payments', payment)
             .then(res => {
               console.log(res?.data)
-              if(res?.data?.insertedId){
+              if(res?.data?.insertResult?.insertedId){
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',

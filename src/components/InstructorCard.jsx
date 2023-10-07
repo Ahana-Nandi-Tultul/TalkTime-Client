@@ -5,6 +5,7 @@ import useAuth from '../hooks/useAuth';
 const InstructorCard = ({instructorInfo}) => {
     const {_id, instructor, photo, email,  courseNames} = instructorInfo;
     const {isDarkMode} = useAuth();
+    
     return (
         <div className={`card shadow-xl
         ${isDarkMode ? 'bg-[#18185a] text-white' : 'bg-base-100 text-black'}`}>
@@ -29,7 +30,7 @@ const InstructorCard = ({instructorInfo}) => {
             <div className="divider"></div>
             <div className="card-actions items-center justify-between">
                 <div className='flex items-center'><MdOutlineNumbers className="w-6 h-6"/> {courseNames.length} classes</div>
-            <Link to={`/instructorClasses/${_id}`}><button className="btn bg-[#01a2a6] text-white">See Classes</button></Link>
+            <Link to={`/instructorClasses/${_id}`}><button className={`btn bg-[#01a2a6] text-white`}>See Classes</button></Link>
             </div>
         </div>
         </div>

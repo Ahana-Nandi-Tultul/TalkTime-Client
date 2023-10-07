@@ -15,7 +15,7 @@ const InsHome = () => {
         queryKey: ['instructor_stats'],
         enabled: !loading,
         queryFn: async () => {
-            const res = await instance(`http://localhost:3000/instructor_stats/${user?.email}`);
+            const res = await instance(`https://talk-time-server.vercel.app/instructor_stats/${user?.email}`);
             // console.log(res?.data);
             setChartData(res?.data?.allclasses);
             return res?.data;

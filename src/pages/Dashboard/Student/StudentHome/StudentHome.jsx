@@ -8,7 +8,7 @@ const StudentHome = () => {
     const {data : studentStats = []} = useQuery({
         queryKey: ['student_stats'],
         queryFn: async() => {
-            const res = await instance(`http://localhost:3000/student_stats/${user?.email}`);
+            const res = await instance(`https://talk-time-server.vercel.app/student_stats/${user?.email}`);
             return res?.data;
         }
     })
