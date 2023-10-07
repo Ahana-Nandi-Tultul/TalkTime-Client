@@ -7,7 +7,7 @@ import { BiUserPin } from 'react-icons/bi';
 const AllInNumbers = () => {
     const [info, setInfo] = useState({})
     useEffect(() => {
-        fetch('http://localhost:3000/allinnumbers')
+        fetch('https://talk-time-server.vercel.app/allinnumbers')
         .then(res => res.json())
         .then(data => setInfo(data))
     }, [])

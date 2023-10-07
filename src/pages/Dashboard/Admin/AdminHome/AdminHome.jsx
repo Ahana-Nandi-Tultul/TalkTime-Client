@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Legend, Tooltip, ResponsiveContainer } from 'recharts';
@@ -14,7 +13,7 @@ const AdminHome = () => {
         queryKey: ['admin_stats'],
         enabled: !loading,
         queryFn: async() => {
-            const res =  await instance('http://localhost:3000/admin_stats')
+            const res =  await instance('/admin_stats')
             // console.log(res.data)
             return res?.data
         }
@@ -24,7 +23,7 @@ const AdminHome = () => {
         queryKey: ['payments_chartData'],
         enabled: !loading,
         queryFn: async() => {
-            const res =  await instance('http://localhost:3000/payments_chartData')
+            const res =  await instance('/payments_chartData')
             // console.log(res.data)
             return res?.data
         }
@@ -50,7 +49,7 @@ const AdminHome = () => {
           return null;
         }
     
-        const dataPoint = payload[0].payload; // Assuming payload contains a single data point
+        const dataPoint = payload[0].payload; 
     
         return (
           <div className="bg-black bg-opacity-50">
@@ -65,7 +64,7 @@ const AdminHome = () => {
 
     return (
         <div className="w-full p-4">
-            <h1 className="text-xl font-bold mb-6">Hi! WelCome {user?.displayName}<small className="font-extralight">(admin)</small></h1>
+            <h1 className="text-xl font-bold mb-6">Hi! Welcome {user?.displayName}<small className="font-extralight"> (admin)</small></h1>
             <div>
                 <div className={`stats stats-vertical lg:stats-horizontal shadow w-full
                 ${isDarkMode ? "bg-[#18185a] text-white" : "bg-white text-black"}`}>
