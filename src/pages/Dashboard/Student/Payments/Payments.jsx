@@ -11,7 +11,7 @@ const Payments = () => {
     const price = parseFloat(totalPrice.toFixed(2));
     const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
     return (
-        <div className={`w-2/3 p-4 ${isDarkMode ? 'bg-[#18185a] opacity-90' : 'bg-white'}`}> 
+        <div className={`w-2/3 p-4 ${isDarkMode ? 'bg-[#18185a] bg-opacity-7s0' : 'bg-white'}`}> 
             <h2 className="text-center text-3xl font-semibold my-10">Complete Payment</h2>
             <Elements stripe={stripePromise}>
                 <CheckoutForm allselectedClasses = {allselectedClasses} price = {price}></CheckoutForm>
