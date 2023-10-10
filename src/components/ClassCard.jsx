@@ -63,12 +63,12 @@ const ClassCard = ({oneClass}) => {
                     {
                         user ? 
                         <button onClick={() => handleSelectClass(oneClass)} className={`btn bg-[#01a2a6] text-white
-                        ${isAdminOrInsOrStu?.isStudent &&  (seats <=0 )? '' : 'btn-disabled'}`} disabled = {disabled}>Select</button> 
+                        ${isAdminOrInsOrStu?.isStudent &&  (enrolledStudents < seats )? '' : 'btn-disabled'}`} disabled = {disabled}>Select</button> 
                         
                         :
 
                         <button onClick={() => handleSelectClass(oneClass)} className={`btn bg-[#01a2a6] text-white
-                    ${(seats <=0 ) ? '' : 'btn-disabled'}`} disabled = {disabled}>Select</button>
+                    ${(enrolledStudents < seats ) ? '' : 'btn-disabled'}`} disabled = {disabled}>Select</button>
                     }
                     </div>
                 </div>
