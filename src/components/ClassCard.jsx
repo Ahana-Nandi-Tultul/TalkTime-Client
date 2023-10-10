@@ -51,7 +51,7 @@ const ClassCard = ({oneClass}) => {
     
     return (
         <>
-            <div className={`card w-full  shadow-xl ${enrolledStudents == seats ? 'on_seats' : ''}
+            <div className={`card w-full  shadow-xl ${ seats <= 0 ? 'on_seats' : ''}
              ${isDarkMode ? 'bg-[#18185a] text-white' : 'bg-base-100 text-black'}`}>
                 <figure><img src={image} alt="Shoes" className="h-[500px] w-full"/></figure>
                 <div className="card-body">
@@ -63,12 +63,12 @@ const ClassCard = ({oneClass}) => {
                     {
                         user ? 
                         <button onClick={() => handleSelectClass(oneClass)} className={`btn bg-[#01a2a6] text-white
-                        ${isAdminOrInsOrStu?.isStudent &&  (enrolledStudents != seats )? '' : 'btn-disabled'}`} disabled = {disabled}>Select</button> 
+                        ${isAdminOrInsOrStu?.isStudent &&  (seats <=0 )? '' : 'btn-disabled'}`} disabled = {disabled}>Select</button> 
                         
                         :
 
                         <button onClick={() => handleSelectClass(oneClass)} className={`btn bg-[#01a2a6] text-white
-                    ${(enrolledStudents != seats ) ? '' : 'btn-disabled'}`} disabled = {disabled}>Select</button>
+                    ${(seats <=0 ) ? '' : 'btn-disabled'}`} disabled = {disabled}>Select</button>
                     }
                     </div>
                 </div>

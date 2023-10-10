@@ -37,7 +37,7 @@ const AddClass = () => {
             instructor, 
             email, 
             courseName, 
-            coursePrice, 
+            coursePrice : parseInt(coursePrice), 
             seats : parseInt(seats), 
             image: imgURL, 
             status: 'pending', 
