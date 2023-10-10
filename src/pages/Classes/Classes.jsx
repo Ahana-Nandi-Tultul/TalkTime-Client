@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Banner2nd from "../../components/Banner2nd";
 import ClassCard from "../../components/ClassCard";
+import { Fade } from "react-awesome-reveal";
 
 const Classes = () => {
     const [allClassesStu, setAllClassesStu] = useState([]);
@@ -12,8 +13,10 @@ const Classes = () => {
     }, []);
     return (
         <div>
-            <Banner2nd heading="All Classes"></Banner2nd>
-            <div className="my-20 p-4 w-full md:w-11/12 mx-auto">
+            <Fade cascade>
+                <Banner2nd heading="All Classes"></Banner2nd>
+            </Fade>
+            <div className="my-20 p-4 w-full md:w-11/12 mx-auto" data-aos="slide-up">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {
                     allClassesStu.map(oneClass => <ClassCard key={oneClass._id} oneClass = {oneClass}></ClassCard>)
@@ -21,6 +24,8 @@ const Classes = () => {
             </div>
             </div>
         </div>
+        
+       
     );
 };
 

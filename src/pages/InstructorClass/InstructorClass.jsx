@@ -26,9 +26,9 @@ const InstructorClass = () => {
     }, [oneInstructor])
     return (
         <>
-        <div className={`${isDarkMode ? 'bg-[#10103c] text-white' : 'bg-base-200 text-black'}`}>
+        <div className={`${isDarkMode ? 'bg-[#10103c] text-white' : 'bg-base-200 text-black'}`} data-aos="slide-up">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 w-full md:w-3/4  p-4 mx-auto" >
-                <div className="w-full">
+                <div className="w-full" >
                     <h2 className="text-7xl font-extralight mb-2">{oneInstructor.name}</h2>
                     <h2 className="text-xl font-extralight">{oneInstructor.email}</h2>
                     <div className="my-10 space-y-4">
@@ -47,7 +47,7 @@ const InstructorClass = () => {
                 </div>
             </div>
         </div>
-        <div className=" w-full md:w-11/12  p-4 mx-auto my-20">
+        <div className=" w-full md:w-11/12  p-4 mx-auto my-20" data-aos="slide-up">
             <h2 className="text-5xl text-center font-extralight my-8">Classes of {oneInstructor.name}</h2>
             {classesInfo.length === 0 && <p className="text-3xl text-center my-8">No Class Available Now!!</p>}
             <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-4">

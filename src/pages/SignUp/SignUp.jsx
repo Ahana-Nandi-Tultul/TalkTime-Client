@@ -90,12 +90,12 @@ const SignUp = () => {
       } 
     return (
         <>
-            <div className="hero min-h-screen ">
+            <div className="hero min-h-screen " data-aos="fade-down">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <img src={image1} alt="" className='w-full' />
                     </div>
-                    <div className={`card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100
+                    <div className={`card flex-shrink-0 w-full max-w-sm shadow-2xl
                     ${isDarkMode ? 'bg-[#18185a] text-white' : 'bg-base-100 text-black'}`}>
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-0">
                         <h1 className="text-3xl text-center font-bold">Please Sign Up!</h1>

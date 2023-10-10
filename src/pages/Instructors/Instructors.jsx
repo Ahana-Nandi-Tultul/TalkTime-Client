@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Banner2nd from "../../components/Banner2nd";
 import InstructorCard from "../../components/InstructorCard";
+import { Fade } from "react-awesome-reveal";
 
 const Instructors = () => {
     const [allInstructors, setAllInstructors] = useState([]);
@@ -12,8 +13,10 @@ const Instructors = () => {
     }, [])
     return (
         <div>
+            <Fade cascade>
             <Banner2nd heading="All Instructors"></Banner2nd>
-            <div className="my-20 p-4 w-full md:w-11/12 mx-auto">
+            </Fade>
+            <div className="my-20 p-4 w-full md:w-11/12 mx-auto" data-aos="slide-up">
                 <div  className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {
                     allInstructors.map(instructorInfo => <InstructorCard
@@ -22,6 +25,8 @@ const Instructors = () => {
                 }
                 </div>
             </div>
+
+            
         </div>
     );
 };

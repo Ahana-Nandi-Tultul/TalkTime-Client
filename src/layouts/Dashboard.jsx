@@ -15,6 +15,8 @@ const Dashboard = () => {
     return (
         <>
            <DashboardNav></DashboardNav>
+           <div className={`${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-white text-black'}`}>
+
             <div className={`drawer lg:drawer-open ${isDarkMode ? 'bg-[#00001a] text-white' : 'bg-white text-black'}`}>
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center overflow-auto my-20">
@@ -63,6 +65,7 @@ const Dashboard = () => {
             </div>
             </div>
             <Footer></Footer>
+           </div>
         </>
     );
 };

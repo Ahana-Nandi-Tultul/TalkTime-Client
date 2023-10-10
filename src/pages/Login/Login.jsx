@@ -49,7 +49,7 @@ const Login = () => {
       } 
     return (
         <>
-            <div className="hero min-h-screen">
+            <div className="hero min-h-screen" data-aos="fade-down">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left">
                         <img src={image1} alt="" />
