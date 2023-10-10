@@ -152,11 +152,15 @@ const AllUsers = () => {
                             </td>
                             <td className="uppercase"> {user?.role}</td>
                             <td>
-                                <button className="btn bg-yellow-700 text-white"
+                                <button className={`btn bg-yellow-700 text-white 
+                                ${user.role === 'Instructor'
+                                ? isDarkMode ? 'btn-disabled td-btn' : 'btn-disabled' : ''} `}
                                 onClick={() => handleMakeInstructor(user)}><BiUserPin className="w-6 h-6"/></button>
                             </td>
                             <td>
-                                <button className="btn bg-[#01a2a6] text-white"
+                                <button className={`btn bg-[#01a2a6] text-white
+                                ${user.role === 'Admin'
+                                ? isDarkMode ? 'btn-disabled td-btn' : 'btn-disabled' : ''} `}
                                 onClick={() => handleMakeAdmin(user)}><FaUserShield className="w-6 h-6"/></button>
                             </td>
                         </tr>

@@ -14,7 +14,7 @@ const ProfileLogout = () => {
                     data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName}/>
                     :<FaUserCircle data-tooltip-content={user?.displayName}/>
                 }
-                <Tooltip id="my-tooltip" className='bg-black text-white z-20' />
+                <Tooltip id="my-tooltip" className='bg-black text-white z-50' />
             </div>
         </div>
     );

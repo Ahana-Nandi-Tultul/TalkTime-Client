@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image1 from '../../assets/crop_authentication.png';
 import SocialLogin from '../../components/SocialLogin';
 import { useState } from 'react';
@@ -9,7 +9,10 @@ import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const {createUser, updateUserProfile, isDarkMode} = useAuth();
+    const {createUser, updateUserProfile, isDarkMode, loading} = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state?.from?.pathname || '/';
     const {
         register,
         handleSubmit,
@@ -56,7 +59,7 @@ const SignUp = () => {
                 })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                    // console.log(data)
                     if(data.insertedId){
                         Swal.fire({
                             position: 'top-end',
@@ -66,6 +69,10 @@ const SignUp = () => {
                             timer: 1500
                           })
                     }
+                    if(!loading){
+
+                        navigate(from, {replace: true})
+                    }  
                 })
 
             })

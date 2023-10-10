@@ -9,7 +9,7 @@ import { BsFillSunFill } from 'react-icons/Bs';
 const DashboardNav = () => {
     const {user, logout, isDarkMode, setIsDarkMode} = useAuth();
     
-    const handleLogout = () => {
+    const handleLogout2 = () => {
         logout()
         .then(() => {
             localStorage.removeItem('talkTime-access-token');
@@ -53,7 +53,7 @@ const DashboardNav = () => {
                         user ? 
                         <>
                         <ProfileLogout></ProfileLogout>
-                        <button className='btn' onClick={handleLogout}>Logout</button>
+                        <button className='btn' onClick={() => handleLogout2()}>Logout</button>
                         </>
                          :
                         <Link to="/login" className="btn">Login</Link>
